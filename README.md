@@ -1,7 +1,7 @@
-# IOT_Environment_Detection
+# IOT_Environment_Detection ESP32桌上环境监测
 实用好看，基于ESP32，实现桌上温湿度、气压、环境光监测，本地交互，并把信息发送到云端。
 
-# ESP32桌上环境监测
+
 
 ## 项目简介
 
