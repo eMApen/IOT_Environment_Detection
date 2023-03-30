@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "*.cps": "javascript",
+        "*.h": "c",
+        "array": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "cstddef": "cpp"
+    },
+    "cmake.configureOnOpen": true,
+    "cmake.sourceDirectory": "${workspaceFolder}/.pio/libdeps/nodemcu-32s/ESP8266 and ESP32 OLED driver for SSD1306 displays"
+}
