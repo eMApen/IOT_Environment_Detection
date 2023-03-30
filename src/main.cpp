@@ -69,8 +69,6 @@ int demoLength = (sizeof(demos) / sizeof(Demo));
 long timeSinceLastModeSwitch = 0;
 
 void drawImageDemo_94_64_w(int picture_num) {
-  // see http://blog.squix.org/2015/05/esp8266-nodemcu-how-to-create-xbm.html
-  // on how to create xbm files
   if(picture_num <0 || picture_num > 45)
   {
     Serial.println("error picture_num");
@@ -78,6 +76,7 @@ void drawImageDemo_94_64_w(int picture_num) {
   }  
 
 //  display.drawXbm(0, 0, WiFi_Logo_width, WiFi_Logo_height, watch_image_addr[picture_num]);
+// （128-94）*0.5 = 17 居中显示
   display.drawXbm(17, 0, Watch_Image_width, Watch_Image_height, spaceman[picture_num]);
 
 }
@@ -91,20 +90,16 @@ void display_bmp_watch(int current){
   // demos[watch_image_current]();
   drawImageDemo_94_64_w(current);
 
-//  display.setFont(ArialMT_Plain_10);
-//  display.setTextAlignment(TEXT_ALIGN_RIGHT);
-  //display.drawString(128, 54, String(millis()));
-  // write the buffer to the display
+  display.setFont(ArialMT_Plain_10);
+  display.setTextAlignment(TEXT_ALIGN_RIGHT);
+  display.drawString(128, 54, String(millis()));
+//  write the buffer to the display
   display.display();
 }
 
 //enter pattern1(weather/time) ---- 
 void pattern_solution1()
 {
-
-    //display watch -- 100ms change picture
-//    drawImageDemo_64_64();
-  
   //display watch image
   if (watch_image_current < WATCH_IMAGE_NUM -1 )
     watch_image_current++;
@@ -116,24 +111,12 @@ void pattern_solution1()
 
 }
 
-
-
 void loop() {
   // clear the display
   display.clear();
-  // draw the current demo method
-  // demos[demoMode]();
 
-  
   light = TEMT6000_filter();
   Serial.println(light);
-
-  // display.setFont(ArialMT_Plain_10);
-  // display.setTextAlignment(TEXT_ALIGN_RIGHT);
-  // display.drawString(128, 54, String(millis()));
-  // // write the buffer to the display
-  // display.display();
-
   pattern_solution1();
   counter++;
   
