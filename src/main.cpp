@@ -29,8 +29,11 @@ typedef void (*Demo)(void);
 
 int demoMode = 0;
 int counter = 1;
-int light;
+int light_value;
 int watch_image_current = 0;   // save now display image number
+char Date[9],Time[9],Light[11],TP[16];
+
+
 
 void setup() {
   Serial.begin(115200);
@@ -77,9 +80,18 @@ void drawImageDemo_94_64_w(int picture_num) {
 
 //  display.drawXbm(0, 0, WiFi_Logo_width, WiFi_Logo_height, watch_image_addr[picture_num]);
 // （128-94）*0.5 = 17 居中显示
-  display.drawXbm(17, 0, Watch_Image_width, Watch_Image_height, spaceman[picture_num]);
+  display.drawXbm(54, 0, Watch_Image_width, Watch_Image_height, spaceman[picture_num]);
 
 }
+
+void value2String(){
+  sprintf(Date,"23-03-30");
+  sprintf(Time,"21:57:20");
+  sprintf(Light,"Light=%d ",100*light_value/4096);
+  Light[8] = '%';
+  sprintf(TP,"T=%.0f°C P=%d",36.0,100);
+}
+
 
 
 void display_bmp_watch(int current){
@@ -90,15 +102,19 @@ void display_bmp_watch(int current){
   // demos[watch_image_current]();
   drawImageDemo_94_64_w(current);
 
-  display.setFont(ArialMT_Plain_10);
-  display.setTextAlignment(TEXT_ALIGN_RIGHT);
-  display.drawString(128, 54, String(millis()));
+  display.setFont(ArialMT_Plain_14);
+  display.setTextAlignment(TEXT_ALIGN_LEFT);
+  value2String();
+  display.drawString(0, 0, Date);
+  display.drawString(0, 16, Time);
+  display.drawString(0, 32, Light);
+  display.drawString(0, 48, TP);
 //  write the buffer to the display
   display.display();
 }
 
 //enter pattern1(weather/time) ---- 
-void pattern_solution1()
+void pattern_main()
 {
   //display watch image
   if (watch_image_current < WATCH_IMAGE_NUM -1 )
@@ -115,9 +131,9 @@ void loop() {
   // clear the display
   display.clear();
 
-  light = TEMT6000_filter();
-  Serial.println(light);
-  pattern_solution1();
+  light_value = TEMT6000_filter();
+  Serial.println(light_value);
+  pattern_main();
   counter++;
   
   delay(50);
