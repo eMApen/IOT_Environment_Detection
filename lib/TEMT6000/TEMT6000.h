@@ -4,7 +4,6 @@
 #define FILTER_N 50
 #define ad_pin 14
 
-int TEMT6000_filter();
-
+int TEMT6000_Output();
 
 #endif

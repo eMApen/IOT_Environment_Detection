@@ -29,10 +29,10 @@ typedef void (*Demo)(void);
 
 int demoMode = 0;
 int counter = 1;
-int light_value;
+int light_value,light_raw;
 int watch_image_current = 0;   // save now display image number
 char Date[9],Time[9],Light[11],TP[16];
-
+struct tm timeInfo; //声明一个结构体
 
 
 void setup() {
@@ -87,7 +87,7 @@ void drawImageDemo_94_64_w(int picture_num) {
 void value2String(){
   sprintf(Date,"23-03-30");
   sprintf(Time,"21:57:20");
-  sprintf(Light,"Light=%d ",100*light_value/4096);
+  sprintf(Light,"Light=%d ",light_value);
   Light[8] = '%';
   sprintf(TP,"T=%.0f°C P=%d",36.0,100);
 }
@@ -131,11 +131,13 @@ void loop() {
   // clear the display
   display.clear();
 
-  light_value = TEMT6000_filter();
-  Serial.println(light_value);
+  (light_raw,light_value) = TEMT6000_Output();
   pattern_main();
+
   counter++;
   
   delay(50);
 }
+
+
 
