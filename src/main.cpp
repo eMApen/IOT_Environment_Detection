@@ -34,12 +34,20 @@ int watch_image_current = 0;   // save now display image number
 char Date[9],Time[9],Light[11],TP[16];
 struct tm timeInfo; //声明一个结构体
 
+const char* id="HAHAHOST";   //定义两个字符串指针常量
+const char* psw="603kbdbzm";
 
 void setup() {
   Serial.begin(115200);
   Serial.println("Hello World!");
   Serial.println();
   
+  WiFi.begin(id,psw);
+  while(WiFi.status()!=WL_CONNECTED){     //未连接上
+    delay(500);
+    Serial.println("正在连接...");
+  }
+  Serial.println("连接成功！");        //连接上
 
   // Initialising the UI will init the display too.
   display.init();
@@ -135,7 +143,6 @@ void loop() {
   pattern_main();
 
   counter++;
-  
   delay(50);
 }
 

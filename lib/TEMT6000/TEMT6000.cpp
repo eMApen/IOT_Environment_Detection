@@ -30,7 +30,7 @@ double TEMT6000_filter(){
 /// @param int signal: 平滑滤波器输出的信号
 /// @return int Companded: 
 int TEMT6000_Companding(double signal){
-    Serial.println(signal);
+    //Serial.println(signal);
     double lightpercent = (double)signal/4096;
     double Companded;
     
