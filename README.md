@@ -44,3 +44,5 @@ Todo:
 新旧对比图
 ![New](pic/New%20one.jpg)
 ![Old](pic/Old%20one.jpg)
+
+检测到师兄上班时间为北京时间九点二十七。
