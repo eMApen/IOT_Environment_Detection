@@ -1,7 +1,8 @@
 #include "TEMT6000.h"
 #include <Wire.h>
 #include <WiFi.h>
-/// @brief  TEMT READING
+
+/// @brief  TEMT6000 READING
 /// @param signal ADC pin
 /// @return The sensor value
 int TEMT6000_read(uint8_t signal){
@@ -13,8 +14,8 @@ int TEMT6000_read(uint8_t signal){
 }
 
 
-/// @brief  TEMT8000 filtering
-/// @param signal ADC pin
+/// @brief  TEMT8000 filtering 直接采样出来是周期信号，需要平滑一下。
+/// @param signal 
 /// @return The sensor value
 double TEMT6000_filter(){
     int i;
@@ -25,6 +26,7 @@ double TEMT6000_filter(){
     }
     return ((double)filter_sum / FILTER_N);
 }
+
 
 /// @brief TEMT8000 使用A律十三折线，数据处理并且显示百分比
 /// @param int signal: 平滑滤波器输出的信号
@@ -72,7 +74,8 @@ int TEMT6000_Companding(double signal){
     return (int)(Companded*100);
 }
 
-
+/// @brief 将AD采集的信号进行
+/// @return 滤波后的信号以及亮度百分比信息
 int TEMT6000_Output(){
     int lightpercent;
     double filtered;

@@ -34,8 +34,8 @@ Todo:
 
 ## 4. 数据后台监控
 之前搭好的仍然是InfluxDB + Grafana，效果如图：
-![Grafana](pic/Grafana.jpg)
-
+![Grafana](pic/GrafanaPhone.jpg)
+![Grafana](pic/GrafanaChrome.jpg)
 ## 5. 代码结构改进
 让依托答辩的代码具有可读性，施工中……
 
