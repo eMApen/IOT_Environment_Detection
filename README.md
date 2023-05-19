@@ -17,7 +17,7 @@ Todo:
 - [x] TEMP6000 的光照
 - [x] 数据传到服务器中，实时监测且后台监控
 - [x] 电池以及电池充电
-- [ ] 代码整理：好的代码规范源于调试完之后再归档（x
+- [x] 代码整理：好的代码规范源于调试完之后再归档（x
 - [ ] 服务器上的数据分析：基于环境光模块的实验室卷王检测
 
 ## 1. OLED 显示
@@ -34,10 +34,32 @@ Todo:
 
 ## 4. 数据后台监控
 之前搭好的仍然是InfluxDB + Grafana，效果如图：
+![Grafanachrome](pic/GrafanaChrome.png)
 ![Grafana](pic/GrafanaPhone.jpg)
-![Grafana](pic/GrafanaChrome.jpg)
+
 ## 5. 代码结构改进
-让依托答辩的代码具有可读性，施工中……
+让依托答辩的代码具有可读性：
+
+Recovery
+├─include
+│  ├─spaceman.h
+├─lib
+│  ├─DBUpdate
+│  │  ├─DBUpdate.h
+│  │  └─DBUpdate.cpp
+│  ├─Display
+│  │  ├─display.h
+│  │  └─display.cpp
+│  ├─TEMT6000
+│  │  ├─TEMP6000.h
+│  │  └─TEMP6000.cpp
+│  └─time_catch
+│     ├─time_catch.h
+│     └─time_catch.cpp
+├─pic
+├─src
+│  └─main.cpp
+└─test
 
 
 ## 其他的
