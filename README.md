@@ -40,26 +40,26 @@ Todo:
 ## 5. 代码结构改进
 让依托答辩的代码具有可读性：
 
-Recovery
-├─include
-│  ├─spaceman.h
-├─lib
-│  ├─DBUpdate
-│  │  ├─DBUpdate.h
-│  │  └─DBUpdate.cpp
-│  ├─Display
-│  │  ├─display.h
-│  │  └─display.cpp
-│  ├─TEMT6000
-│  │  ├─TEMP6000.h
-│  │  └─TEMP6000.cpp
-│  └─time_catch
-│     ├─time_catch.h
-│     └─time_catch.cpp
-├─pic
-├─src
-│  └─main.cpp
-└─test
+Recovery <br>
+├─include<br>
+│  ├─spaceman.h<br>
+├─lib<br>
+│  ├─DBUpdate<br>
+│  │  ├─DBUpdate.h<br>
+│  │  └─DBUpdate.cpp<br>
+│  ├─Display<br>
+│  │  ├─display.h<br>
+│  │  └─display.cpp<br>
+│  ├─TEMT6000<br>
+│  │  ├─TEMP6000.h<br>
+│  │  └─TEMP6000.cpp<br>
+│  └─time_catch<br>
+│     ├─time_catch.h<br>
+│     └─time_catch.cpp<br>
+├─pic<br>
+├─src<br>
+│  └─main.cpp<br>
+└─test<br>
 
 
 ## 其他的
