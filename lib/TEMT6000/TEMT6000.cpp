@@ -22,7 +22,7 @@ double TEMT6000_filter(){
     int filter_sum = 0;
     for(i = 0; i < FILTER_N; i++) {
         filter_sum += TEMT6000_read(ad_pin);
-    delay(1);
+        delay(1);
     }
     return ((double)filter_sum / FILTER_N);
 }
