@@ -29,7 +29,7 @@ double TEMT6000_filter(){
 
 
 /// @brief TEMT8000 使用A律十三折线，数据处理并且显示百分比
-/// @param int signal: 平滑滤波器输出的信号
+/// @param double signal: 平滑滤波器输出的信号
 /// @return int Companded: 
 int TEMT6000_Companding(double signal){
     //Serial.println(signal);
