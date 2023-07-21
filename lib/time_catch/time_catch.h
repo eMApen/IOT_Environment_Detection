@@ -1,6 +1,4 @@
 #include <WiFiMulti.h>
 #include "time.h"
 
-struct tm timeinfo;
-
-void Time_Catcher();
+void Time_Catcher(struct tm *tm_struct);
