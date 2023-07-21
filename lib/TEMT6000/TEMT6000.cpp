@@ -22,14 +22,14 @@ double TEMT6000_filter(){
     int filter_sum = 0;
     for(i = 0; i < FILTER_N; i++) {
         filter_sum += TEMT6000_read(ad_pin);
-    delay(1);
+        delay(1);
     }
     return ((double)filter_sum / FILTER_N);
 }
 
 
 /// @brief TEMT8000 使用A律十三折线，数据处理并且显示百分比
-/// @param int signal: 平滑滤波器输出的信号
+/// @param double signal: 平滑滤波器输出的信号
 /// @return int Companded: 
 int TEMT6000_Companding(double signal){
     //Serial.println(signal);

@@ -2,6 +2,18 @@
 
 #define DEVICE "ESP32"
 
+// InfluxDB client instance with preconfigured InfluxCloud certificate
+InfluxDBClient client(INFLUXDB_URL, INFLUXDB_ORG, INFLUXDB_BUCKET, INFLUXDB_TOKEN, InfluxDbCloud2CACert);
+
+
+// Data point
+Point sensor("Light");
+
+
+uint32_t updateflag = 0;
+
+float light_update = 0;
+
 void InfluxDB_Init(){
     // Initialising the UI will init the display too.
 
@@ -24,7 +36,6 @@ void InfluxDB_Init(){
 
 float Influxdb_Writting(int light_value){
   //20s左右上传一次数据
-  float light_update=0;
   light_update = light_update + (float)light_value;
   if(updateflag == 400)
   {
@@ -33,16 +44,11 @@ float Influxdb_Writting(int light_value){
     // Store measured value into point
     // Report RSSI of currently connected network
     sensor.addField("rssi", WiFi.RSSI());
-    light_update = light_update/200;
+    light_update = light_update/400;
     sensor.addField("light",light_update);
     // Print what are we exactly writing
     Serial.print("Writing: ");
     Serial.println(sensor.toLineProtocol());
-
-    // Check WiFi connection and reconnect if needed
-    if (wifiMulti.run() != WL_CONNECTED) {
-      Serial.println("Wifi connection lost");
-    }
 
     // Write point
     if (!client.writePoint(sensor)) {
@@ -50,7 +56,7 @@ float Influxdb_Writting(int light_value){
       Serial.println(client.getLastErrorMessage());
     }
 
-    Serial.println("Wait 10s");
+    Serial.println("Wait 20s");
     light_update = 0;
   }
   else{

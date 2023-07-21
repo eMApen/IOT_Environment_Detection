@@ -13,5 +13,6 @@
         "cstddef": "cpp"
     },
     "cmake.configureOnOpen": true,
-    "cmake.sourceDirectory": "${workspaceFolder}/.pio/libdeps/nodemcu-32s/ESP8266 and ESP32 OLED driver for SSD1306 displays"
+    "cmake.sourceDirectory": "${workspaceFolder}/.pio/libdeps/nodemcu-32s/ESP8266 and ESP32 OLED driver for SSD1306 displays",
+    "C_Cpp.errorSquiggles": "disabled"
 }
