@@ -1,4 +1,5 @@
 # IOT_Environment_Detection ESP32桌上环境监测
+
 实用好看，基于ESP32，实现桌上温湿度、气压、环境光监测，本地交互，并把信息发送到云端。
 
 ## 项目简介
@@ -48,26 +49,26 @@ Todo:
 让依托答辩的代码具有可读性，对各个模块进行解耦合。
 
 ```shell
-Recovery <br>
-├─lib<br>
-│  ├─DBUpdate<br>
-│  │  ├─DBUpdate.h<br>
-│  │  └─DBUpdate.cpp<br>
-│  ├─Display<br>
-│  │  ├─spaceman.h<br>
-│  │  ├─display.h<br>
-│  │  └─display.cpp<br>
-│  ├─TEMT6000<br>
-│  │  ├─TEMP6000.h<br>
-│  │  └─TEMP6000.cpp<br>
-│  └─time_catch<br>
-│     ├─time_catch.h<br>
-│     └─time_catch.cpp<br>
-├─pic<br>
-├─src<br>
-│  ├─main.h<br>
-│  └─main.cpp<br>
-└─test<br>
+Recovery
+├─lib 
+│  ├─DBUpdate 
+│  │  ├─DBUpdate.h 
+│  │  └─DBUpdate.cpp 
+│  ├─Display 
+│  │  ├─spaceman.h 
+│  │  ├─display.h 
+│  │  └─display.cpp 
+│  ├─TEMT6000 
+│  │  ├─TEMP6000.h 
+│  │  └─TEMP6000.cpp 
+│  └─time_catch 
+│     ├─time_catch.h 
+│     └─time_catch.cpp 
+├─pic 
+├─src 
+│  ├─main.h 
+│  └─main.cpp 
+└─test 
 ```
 
 使用面向对象编程优化代码结构框架。
