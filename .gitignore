@@ -5,3 +5,4 @@
 .vscode/ipch
 lib/DBUpdate/password.h
 *.code-workspace
+build/

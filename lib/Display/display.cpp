@@ -64,7 +64,7 @@ void display_bmp_watch(int current,struct tm *timep,int light_value,int online){
   // demos[watch_image_current]();
   drawImageDemo_94_64_w(current);
 
-  display.setFont(ArialMT_Plain_14);
+  display.setFont(ArialMT_Plain_10);
   display.setTextAlignment(TEXT_ALIGN_LEFT);
   value2String(timep,light_value,online);
   display.drawString(0, 0, Date);
